@@ -36,7 +36,7 @@ html {
 }
 .row::after {
     content: "";
-    display: block;
+    display: block;  
     clear: both;
 }
 .col {
@@ -64,8 +64,13 @@ html {
 .mt16 {
     margin-top: 16px !important;
 }
+.s-mt8 {
+    margin-top: 8px !important;
+}
 /* main */
-
+#main {
+    overflow: hidden;
+}
 .text-white {
     color: #fff !important;
 }
@@ -90,7 +95,7 @@ html {
 #nav li a {
     text-decoration: none;
     padding: 0 24px;
-    display: inline-block;
+    display: block;
 }
 #nav > li:hover > a,
 #nav .navsub li:hover a  {
@@ -119,15 +124,31 @@ html {
     padding: 0 12px;
     line-height: 38px;
 }
+#header .mobile-menu-btn:hover {
+    background-color: #ccc;
+}
+#header .mobile-menu-btn:hover .menu-icon {
+    color: #000;
+}
+#header .search-btn {
+    
+}
 #header .search-btn:hover {
     background-color: #f44336;
     cursor: pointer;
 }
+#header .mobile-menu-btn,
 #header .search-btn {
     float: right;
     padding: 0px 21px;
-    
 }
+#header .mobile-menu-btn {
+    position: absolute;
+    top: 0;
+    right: 0;
+    display: none;
+}
+#header .menu-icon,
 #header .search-icon {
     color: #fff;
     font-size: 20px;
@@ -144,7 +165,7 @@ html {
     position: relative;
     margin-top: 46px;    
     padding-top: 50%;
-    background: url('/trangchu/img/slider/band-backup.jpeg') top center / cover no-repeat;
+    background: url('../img/slider/slider01.jpg') top center / cover no-repeat;
 }
 
 #slider .text-content {
@@ -154,6 +175,7 @@ html {
     left: 50%;
     transform: translateX(-50%);
     text-align: center;
+    
 }
 
 #slider .text-heading {
@@ -164,12 +186,14 @@ html {
 
 #slider .text-description {
     font-size: 20px;
-}
+    text-shadow: 0 0 10px #000;
+}   
 #content {
 }
 
 #content .session {
     width: 800px;
+    max-width: 100%;
     margin-left: auto;
     margin-right: auto;
     padding: 64px;
@@ -195,7 +219,7 @@ html {
 #content .about {
     text-align: justify;
     font-size: 15px;
-    margin: 15px 0;
+    margin-top: 25px;
     line-height: 1.4;
 }
 
@@ -247,7 +271,7 @@ html {
 }
 
 .place-list {
-    margin-top: 32px;
+    margin-top: 16px;
     margin-bottom: 48px;
 }
 
@@ -387,7 +411,7 @@ html {
 }
 
 .contact-info {
-    font-size: 18px;
+    font-size: 15px;
     line-height: 1.5;
 }
 .contact-info i[class*="ti-"] {

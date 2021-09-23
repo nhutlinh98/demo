@@ -3,10 +3,11 @@
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <link rel="stylesheet" href="/trangchu/css/style.css">
-    <link rel="stylesheet" href="/trangchu/font/themify-icons-font/themify-icons/themify-icons.css">
+    <link rel="stylesheet" href="./trangchu/css/style.css">
+    <link rel="stylesheet" href="./trangchu/css/responsive.css">
+    <link rel="stylesheet" href="./trangchu/font/themify-icons-font/themify-icons/themify-icons.css">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="icon" href="/trangchu/img/icon/title-icon.png">
+    <link rel="icon" href="./trangchu/img/icon/title-icon.png">
     <title>Welcome</title>
 </head>
 <body>
@@ -33,11 +34,15 @@
             </ul>
             <!--Begin: Nav-->
 
-            <!--Begin: Search-->
+            <!--mobile-->
+            <div id="menu-mobile" class="mobile-menu-btn">
+                <i class="ti-menu menu-icon"></i>
+            </div>
+            
+            <!--search-->
             <div class="search-btn">
                 <i class=" search-icon ti-search"></i>
             </div>
-            <!--End: Search-->
             
         </div>
         <!-- End: Nav -->
@@ -59,15 +64,15 @@
                 </p>
             <!--Member-band-->
                 <div class="row member-list">
-                    <div class="col third-col text-center">
+                    <div class="member-items col third-col text-center">
                         <p class="member-name">Name</p>
                         <img src="/trangchu/img/team/bandmember.jpg" alt="Name" class="member-img">
                     </div>
-                    <div class="col third-col text-center">
+                    <div class="member-items col third-col text-center">
                         <p class="member-name">Name</p>
                         <img src="/trangchu/img/team/bandmember.jpg" alt="Name" class="member-img">
                     </div>
-                    <div class="col third-col text-center">
+                    <div class="member-items col third-col text-center">
                         <p class="member-name">Name</p>
                         <img src="/trangchu/img/team/bandmember.jpg" alt="Name" class="member-img">
                     </div>
@@ -87,7 +92,7 @@
 
             <!--Places-->
                     <div class="row place-list">
-                        <div class="col third-col">
+                        <div class="col third-col s-col-ful mt16">
                             <img src="/trangchu/img/place/place1.jpg" alt="New York" class="place-img">
                             <div class="place-body">
                                 <h3 class="place-heading">New York</h3>
@@ -96,7 +101,7 @@
                                 <button class="place-buy-btn js-buy-ticket">Buy Ticket</button>
                             </div>
                         </div>
-                        <div class="col third-col">
+                        <div class="col third-col s-col-ful mt16">
                             <img src="/trangchu/img/place/place2.jpg" alt="Paris" class="place-img">
                             <div class="place-body">
                                 <h3 class="place-heading">Paris</h3>
@@ -105,7 +110,7 @@
                                 <button class="place-buy-btn js-buy-ticket">Buy Ticket</button>
                             </div>
                         </div>
-                        <div class="col third-col">
+                        <div class="col third-col s-col-ful mt16">
                             <img src="/trangchu/img/place/place3.jpg" alt="San Francisco" class="place-img">
                             <div class="place-body">
                                 <h3 class="place-heading">San Francisco</h3>
@@ -123,19 +128,19 @@
                 <p class="session-sub-heading">Fan? Drop a note!</p>
 
                 <div class="row contact-content">
-                    <div class="col half-col contact-info">
+                    <div class="col half-col contact-info s-col-ful">
                         <p><i class="ti-location-pin"></i>Chicago,US</p>
                         <p><i class="ti-mobile"></i>Phone:03983805555</p>
                         <p><i class="ti-email"></i>Email:Nhutlinhutc2@gmail.com</p>
                     </div>
                     
-                    <div class="col half-col contact-form">
+                    <div class="col half-col s-col-ful contact-form">
                         <form action="">
                             <div class="row">
-                                <div class="col half-col">
+                                <div class="col half-col s-col-ful">
                                     <input type="text" name="" placeholder="Name" required id="" class="form-control">
                                 </div>
-                                <div class="col half-col">
+                                <div class="col half-col s-col-ful s-mt8">
                                     <input type="email" name="" placeholder="Email" required id="" class="form-control">
                                 </div>
                             </div>
@@ -144,7 +149,7 @@
                                     <input type="text" name="Massage" required placeholder="Massage" id="" class="form-control">
                                 </div>  
                             </div>
-                            <input class="form-submit mt16" type="submit" value="SEND">
+                            <input class="form-submit mt16 s-ful-width" type="submit" value="SEND">
                         </form>
                     </div>
                 </div>
@@ -230,7 +235,37 @@
         </script>
 
     </div>
+    <script>
+        // dong mo mobile menu
+        var header = document.getElementById('header');
+        var mobileMenu = document.getElementById('menu-mobile');
+        var headerHeight = header.clientHeight
+        
+        mobileMenu.onclick = function() {
+            var isClose = header.clientHeight === headerHeight
 
+            if (isClose) {
+                header.style.height = 'auto'
+            } else {
+                header.style.height = null
+            }
+        }
+        // tu dong dong khi chon phan tu
+        var menuItems = document.querySelectorAll('#nav li a[href*="#"]')
+
+         for (var i =0; i < menuItems.length; i++) {
+            var menuItem = menuItems[i]
+            
+            menuItem.onclick = function() {
+                var isParentMenu = this.nextElementSibling && this.nextElementSibling.classList.contains('navsub')
+                if (isParentMenu) {
+                     event.preventDefault()
+                } else {
+                    header.style.height = null
+                }           
+            }
+       }
+    </script>
  
 </body>
 </html>
